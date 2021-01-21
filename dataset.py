@@ -32,8 +32,9 @@ class DataReader(object):
     # no labels for the test set!
     ```
     """
-    def __init__(self, what='train'):
+    def __init__(self, what='train', train_frames=196072):
         self.what = what
+        self.train_frames = train_frames
 
         # before starting anything, check if the right folder where we will
         # store data exists, otherwise create it
@@ -163,7 +164,7 @@ class DataReader(object):
     # num_finelabels = len(finelabel_map)
 
     samples = 500
-    train_frames = 196072
+    # train_frames = 196072
     validation_frames = 28789
     test_frames = 57573
 
