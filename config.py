@@ -14,7 +14,7 @@ class Configuration:
     SEED = 1
 
     # where extracted data live
-    datafolder = os.path.join('generated', 'tmp')
+    datafolder = os.path.join('generated', 'sample')
 
     # where generated files, e.g. .mmap, slurm*, *.sav files are stored
     experimentsfolder = os.path.join('generated', VERSION)

@@ -71,17 +71,17 @@ class DataReader(object):
         8: 'Mag_x',
         9: 'Mag_y',
         10: 'Mag_z',
-        11: 'Ori_w',
-        12: 'Ori_x',
-        13: 'Ori_y',
-        14: 'Ori_z',
-        15: 'Gra_x',
-        16: 'Gra_y',
-        17: 'Gra_z',
-        18: 'LAcc_x',
-        19: 'LAcc_y',
-        20: 'LAcc_z',
-        21: 'Pressure'
+        # 11: 'Ori_w',
+        # 12: 'Ori_x',
+        # 13: 'Ori_y',
+        # 14: 'Ori_z',
+        # 15: 'Gra_x',
+        # 16: 'Gra_y',
+        # 17: 'Gra_z',
+        # 18: 'LAcc_x',
+        # 19: 'LAcc_y',
+        # 20: 'LAcc_z',
+        # 21: 'Pressure'
         # [...]
     }
 
@@ -89,17 +89,17 @@ class DataReader(object):
         'Acc',
         'Gyr',
         'Mag',
-        'LAc',
-        'Gra',
-        'Ori',
-        'Pre'
+        # 'LAc',
+        # 'Gra',
+        # 'Ori',
+        # 'Pre'
     ]
 
     def channel_to_modality(channel):
         return channel[:3]  # haha
 
     coarselabel_map = {
-        0: 'null',
+        # 0: 'null',
         1: 'still',
         2: 'walk',
         3: 'run',
@@ -197,7 +197,6 @@ class DataReader(object):
                     shape=(self.test_frames, self.samples))
 
             return data
-
 
         # common for train and validation
         for position in self.smartphone_positions:
