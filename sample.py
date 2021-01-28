@@ -49,7 +49,7 @@ def size_of_index(index:list) -> int:
     return size
 
 
-def sample(indexes:dict, your_student_id_number:str) -> list:
+def sample(indexes:dict, student_id:int) -> list:
     """
     Given the index associated to each activity, this function generates
     a single index by selecting portions for each activity. This function
@@ -58,7 +58,7 @@ def sample(indexes:dict, your_student_id_number:str) -> list:
         - the portions have a sufficient number of adjacent segments;
         - the number of segments of each activity is balanced;
     """
-    np.random.seed(your_student_id_number)
+    np.random.seed(student_id)
 
     # 1. For each activity:
     #   a. filter portions according to their size, e.g. we do not want portions
@@ -149,14 +149,16 @@ def index_of_activity(activity:str) -> list:
     return idxs
 
 
-def build_sample() -> dict:
+def build_sample(student_id:int) -> dict:
     idxs = {}
     for activity in coarselabel_map:
         idxs[activity] = index_of_activity(activity)
 
-    sample_idx = sample(idxs)
+    sample_idx = sample(idxs, student_id)
     print(sample_idx)
-	print('Size of the sample: {}'.format(size_of_index(sample_idx)))
+    print('##############################')
+    print('Size of the sample: {}'.format(size_of_index(sample_idx)))
+    print('##############################')
 
     for _, channel in channels_basic.items():
         extract_examples(sample_idx, channel)
@@ -168,8 +170,8 @@ def build_sample() -> dict:
 
 
 def save_index(idxs:dict, path:str) -> None:
-	with open(path, 'wb') as handle:
-		pickle.dump(idxs, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    with open(path, 'wb') as handle:
+        pickle.dump(idxs, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 if __name__ == '__main__':
